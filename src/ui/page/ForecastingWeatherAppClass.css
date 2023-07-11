@@ -1,0 +1,23 @@
+.header-container {
+    color: white;
+}
+.header-refresh-button {
+    width: 48px;
+    height: 48px;
+    margin-left: 12px;
+    border-radius: 8px;
+    background-size: contain;
+    transition: 0.5s;
+}
+.header-refresh-button:hover {
+    border-radius: 24px;
+    transform: rotate(360deg);
+    cursor: pointer;
+}
+.location {
+    color: white;
+    opacity: .6;
+}
+.weather-icon {
+    background: transparent;
+}
