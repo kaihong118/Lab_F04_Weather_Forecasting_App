@@ -7,6 +7,7 @@ import ForecastTableClass from "../component/ForecastTableClass/ForecastTableCla
 import {ForecastWeatherData} from "../../data/ForecastWeatherData.ts";
 import GetWeatherDataApi from "../../api/GetWeatherDataApi.ts";
 import * as moment from "moment/moment";
+// import axios from "axios";
 
 type Props = {}
 
@@ -25,7 +26,9 @@ export default class ForecastingWeatherAppClass extends React.Component<Props, S
     }
 
     setForecastWeatherDataState = (data: ForecastWeatherData) => {
-        this.setState({forecastWeatherData: data, updatedTime: moment().format("DD-M-YYYY HH:mm:ss")});
+        setTimeout(() => {
+            this.setState({forecastWeatherData: data, updatedTime: moment().format("DD-M-YYYY HH:mm:ss")});
+        },1000)
     }
 
     fetchForecastWeatherData = () => {
@@ -33,8 +36,18 @@ export default class ForecastingWeatherAppClass extends React.Component<Props, S
     }
 
     componentDidMount() {
+        //To empty the UI, make it visible
+        this.setState({
+            forecastWeatherData: undefined,
+            updatedTime: undefined
+        })
         this.fetchForecastWeatherData()
     }
+
+    // Execute when leaving the component
+    // componentWillUnmount() {
+    //     axios.CancelToken.source().cancel();
+    // }
 
     render() {
         return (

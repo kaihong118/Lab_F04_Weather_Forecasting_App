@@ -1,4 +1,4 @@
-import axios, {AxiosResponse} from "axios";
+import axios from "axios";
 import {ForecastWeatherData} from "../data/ForecastWeatherData.ts";
 
 export default class GetWeatherDataApi {
@@ -8,10 +8,10 @@ export default class GetWeatherDataApi {
 
     static apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${GetWeatherDataApi.latitude}&lon=${GetWeatherDataApi.longitude}&units=metric&appid=${GetWeatherDataApi.apiKey}`
 
-    //setForecastWeatherDataState:(data:ForecastWeatherData) => void -> get a function from Class
+    //setForecastWeatherDataState:(data:ForecastWeatherData) => void                     -> get a function from Class
     static fetchForecastWeatherData = (setForecastWeatherDataState:(data:ForecastWeatherData) => void) => {
-        axios.get(GetWeatherDataApi.apiUrl)
-            .then((response:AxiosResponse<ForecastWeatherData>) => {
+        axios.get<ForecastWeatherData>(GetWeatherDataApi.apiUrl)
+            .then((response) => {
                 setForecastWeatherDataState(response.data)
             })
             .catch((error) => {

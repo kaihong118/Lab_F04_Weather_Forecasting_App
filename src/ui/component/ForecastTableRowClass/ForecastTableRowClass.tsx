@@ -20,6 +20,7 @@ export default class ForecastTableRowClass extends React.Component<Props> {
                     <td>{this.props.forecastWeatherData.main.temp_min}/{this.props.forecastWeatherData.main.temp_max}</td>
                     <td>{this.props.forecastWeatherData.main.humidity}%</td>
                     <td><img className={"weather-icon"}
+                             alt={"weather-icon"}
                              src={`https://openweathermap.org/img/wn/${this.props.forecastWeatherData.weather[0].icon}@2x.png`}/>
                     </td>
                 </tr>
