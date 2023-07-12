@@ -18,5 +18,4 @@ export default class GetWeatherDataApi {
                 console.log(error)
             })
     }
-
 }
